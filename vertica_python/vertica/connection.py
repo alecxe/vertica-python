@@ -35,7 +35,7 @@ class Connection(object):
         self.socket = None
 
         options = options or {}
-        self.options = {key: value for key, value in options.items() if value is not None}
+        self.options = dict([(key, value) for key, value in options.items() if value is not None])
 
         # we only support one cursor per connection
         self.options.setdefault('unicode_error', None)
